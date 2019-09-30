@@ -6,7 +6,10 @@ $.ajax({
   crossDomain: "true",
   jsonpCallback: 'processJSONPResponse',
   success: function( response ) {
-    console.log( response.status );
+    if (response.status) {
+      $(  "#api_status" ).addClass("available");
+      console.log( response.status );
+    }
   }
 });
 document.addEventListener("DOMContentLoaded", function() {

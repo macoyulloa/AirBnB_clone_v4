@@ -1,11 +1,12 @@
 $.ajax({
-  url: "http://0.0.0.0:5001/api/v1/status/",
+  url: "http://127.0.0.1:5001/api/v1/status/",
   type: "GET",
-  dataType: "jsonp",
+  headers: {'Access-Control-Allow-Origin':'*'},
+  dataType: "json",
+  crossDomain: "true",
   jsonpCallback: 'processJSONPResponse',
-  contentType: "application/json; charset=utf-8",
   success: function( response ) {
-    console.log( response );
+    console.log( response.status );
   }
 });
 document.addEventListener("DOMContentLoaded", function() {

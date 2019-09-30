@@ -22,11 +22,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/8-places.css') }}?{{ cache_id }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/font-awesome.css') }}?{{ cache_id }}">
     <SCRIPT src="https://code.jquery.com/jquery-3.2.1.min.js"></SCRIPT>
-    <script>
-      document.addEventListener("DOMContentLoaded", function(event) {
-      <SCRIPT src="static/scripts/1-hbnb.js?{{ cache_id }}"></SCRIPT>
-      });
-    </script>
+    <SCRIPT src="static/scripts/1-hbnb.js"></SCRIPT>
   </head>
 
   <!-- **********************
@@ -78,7 +74,8 @@
 	    <h4>&nbsp;</h4>
 	    <ul class="popover">
 	      {% for amenity in amens|sort(attribute='name') %}
-	      <LI><INPUT type="checkbox" data-id=":amenity_id">{{ amenity.name }}</LI>
+          <LI><INPUT type="checkbox" class="check_amenity" data-id={{ amenity.id }} data-name={{
+              amenity.name|replace(" ", "_") }}>{{ amenity.name }}</LI>
 	      {% endfor %}
 	    </ul>
 	  </div>
